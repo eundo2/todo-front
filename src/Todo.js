@@ -11,7 +11,7 @@ class Todo extends React.Component {
         const item = this.state.item;
         return(
             <ListItem>
-                <Checkbox />
+                <Checkbox checked={item.done} />
                 <ListItemText>
                     <InputBase 
                         inputProps={{"aria-label":"naked"}}
