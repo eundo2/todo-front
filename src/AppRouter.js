@@ -1,13 +1,14 @@
-import { Box, Typography } from "@material-ui/core";
 import React from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import "./index.css";
 import App from "./App";
 import Login from "./Login";
 import SignUp from "./SignUp";
-import "./index.css";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Box from "@material-ui/core/Box";
+import Typography from "@material-ui/core/Typography";
 
 function Copyright() {
-    return(
+    return (
         <Typography variant="body2" color="textSecondary" align="center">
             {"Copyright ⓒ "}
             fsoftwareengineer, {new Date().getFullYear()}
@@ -18,7 +19,7 @@ function Copyright() {
 
 class AppRouter extends React.Component {
     render() {
-        return(
+        return (
             <BrowserRouter>
                 <div>
                     <Routes>
@@ -36,5 +37,4 @@ class AppRouter extends React.Component {
         );
     }
 }
-
 export default AppRouter;

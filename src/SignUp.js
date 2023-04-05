@@ -1,5 +1,13 @@
-import { Button, Container, Grid, Link, TextField, Typography } from "@material-ui/core";
 import React from "react";
+import {
+    Button,
+    TextField,
+    Link,
+    Grid,
+    Container,
+    Typography,
+} from "@material-ui/core";
+
 import { signup } from "./service/ApiService";
 
 class SignUp extends React.Component {
@@ -15,7 +23,7 @@ class SignUp extends React.Component {
         const username = data.get("username");
         const email = data.get("email");
         const password = data.get("password");
-        signup({email:email, username:username, password:password}).then(
+        signup({ email: email, username: username, password: password }).then(
             (response) => {
                 window.location.href = "/login";
             }
@@ -23,8 +31,8 @@ class SignUp extends React.Component {
     }
 
     render() {
-        return(
-            <Container component="main" maxWidth="xs" style={{marginTop:"8%"}}>
+        return (
+            <Container component="main" maxWidth="xs" style={{ marginTop: "8%" }}>
                 <form noValidate onSubmit={this.handleSubmit}>
                     <Grid container spacing={2}>
                         <Grid item xs={12}>
@@ -81,11 +89,11 @@ class SignUp extends React.Component {
                     </Grid>
                     <Grid container justify="flex-end">
                         <Grid item>
-                            <Link href="/signup" variant="body2">
+                            <Link href="/login" variant="body2">
                                 이미 계정이 있습니까? 로그인 하세요.
                             </Link>
                         </Grid>
-                    </Grid> 
+                    </Grid>
                 </form>
             </Container>
         );
