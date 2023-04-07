@@ -44,13 +44,12 @@ class Todo extends React.Component {
         const item = this.state.item;
         return(
             <ListItem>
-                <Checkbox 
+                <Checkbox
                     checked={item.done}
-                    onChange={this.checkboxEventHandler} 
-                />
+                    onChange={this.checkboxEventHandler} />
                 <ListItemText>
                     <InputBase
-                        inputProps={{"aria-label":"naked", readOnly:this.state.readOnly}}
+                        inputProps={{ "aria-label": "naked", readOnly: this.state.readOnly }}
                         type="text"
                         id={item.id}
                         name={item.id}
@@ -59,14 +58,13 @@ class Todo extends React.Component {
                         fullWidth={true}
                         onClick={this.offReadOnlyMode}
                         onChange={this.editEventHandler}
-                        onKeyPress={this.enterKeyEventHandler}
-                    />
+                        onKeyPress={this.enterKeyEventHandler} />
                 </ListItemText>
 
                 <ListItemSecondaryAction>
                     <IconButton aria-label="Delete"
                         onClick={this.deleteEventHandler}>
-                            <DeleteOutlined />
+                        <DeleteOutlined />
                     </IconButton>
                 </ListItemSecondaryAction>
             </ListItem>

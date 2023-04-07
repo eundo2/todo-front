@@ -6,4 +6,6 @@ console.log("hostname", hostname);
 if(hostname === "localhost") {
     backendHost = "http://localhost:8088";
 }
+// backendHost = "http://192.168.232.197:8088";
+
 export const API_BASE_URL = `${backendHost}`;

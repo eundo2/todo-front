@@ -1,9 +1,10 @@
 import React from 'react';
 import Todo from './Todo';
 import AddTodo from './AddTodo';
-import { AppBar, Button, Container, Grid, List, Paper, Toolbar, Typography } from '@material-ui/core';
+import { AppBar, Button, Container, Grid, IconButton, List, Paper, Toolbar, Typography } from '@material-ui/core';
 import './App.css';
 import { call, signout } from './service/ApiService';
+import { DeleteOutlined } from '@material-ui/icons';
 
 class App extends React.Component {
   constructor(props) {  
@@ -14,6 +15,14 @@ class App extends React.Component {
     };
   }
 
+  deleteAllEventHandler = (e) => {
+    this.state.items.forEach((item) => {
+      if(item.done) {
+        this.delete(item);
+      }
+    });
+  }
+  
   add = (item) => {
     call("/todo", "POST", item).then((response) =>
       this.setState({items:response.data})
@@ -71,6 +80,11 @@ class App extends React.Component {
         <Container maxWidth="md">
           <AddTodo add={this.add} />
           <div className='TodoList'>{todoItems}</div>
+          Delete Completed Item
+          <IconButton aria-label="Delete"
+              onClick={this.deleteAllEventHandler}>
+              <DeleteOutlined />
+          </IconButton>
         </Container>
       </div>
     );
